@@ -1,0 +1,17 @@
+django-admin startproject ile projeyi başlat
+django-admin startapp diyerek modül app oluştur
+
+app altına urls.py  dosyası oluştur
+app altındaki views kısmına açılış fonksiyonunu yaz
+urls.py dosyasına views.<func.name> dahil ederek yeni "urlpattern" listesi oluştur
+listeye yazdığın fonskiyonun 'path' ını ekle.
+
+urlpatterns = [
+    path('', views.<func.name>, name = "index")
+]
+
+proje urls.py dosyasına yazdığın urls.py dosyasını tanıma
+
+settings kısmına app ini tanıt
+
+serveri kaldır
