@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+
+    <link rel="stylesheet" href={% static "css/style.css" %}>
+
+{% endblock css_files %}
+
+{% block baslik %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                    {% for category in categories %}
+                        <a class="btn btn-primary" href="/{{category}}">{{ category }}</a>
+                    {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock baslik %}
+
+
+{% block js_files %}
+    <script src="js/script.js"></script>
+{% endblock js_files %}

@@ -15,3 +15,20 @@ proje urls.py dosyasına yazdığın urls.py dosyasını tanıma
 settings kısmına app ini tanıt
 
 serveri kaldır
+
+---------- templates eklemek için ----------
+
+proje altında templates klasörü sonra her modül için klasör ve altına html dosyalarını oluştur
+views klasöründeki mainpage kısmında render return et içine gömderilen isteği ve "app.name/name.html" 
+        olarak belirtilerek mainpage oluşturulur
+settings kısmına gir ve templates listesindeki DIRS kısmına "BASE_DIR / "templates yaparak"" templates
+        default konumunu değiştir
+serveri yeniden başlat (opsiyonel)
+
+-- BLOCK
+ methodu web sayfasını parçalara ayırmak için kullanılıyor templates altında oluşturulan
+        layout.html main klasör olarak kullanılırken modüller diğer dosyalarda saklanabilir
+
+-- static
+static dosyaları css, js, img doysalarını yani yerleri sabit dosyaları düzende tutmak için
+        varlar

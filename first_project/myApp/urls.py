@@ -3,7 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index,name="index"),
-    path('details',views.details, name="details"),
-    path('list', views.list,name="List")
-
+    path('<category>',views.get_category,name="products"), #<category> bize dinamik web adresini döndürecek
 ]
