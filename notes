@@ -32,3 +32,10 @@ serveri yeniden başlat (opsiyonel)
 -- static
 static dosyaları css, js, img doysalarını yani yerleri sabit dosyaları düzende tutmak için
         varlar
+---------------------
+Model ile DB yazıldıktan sonra sırasıyla terminal üzerine
+
+python manage.py makemigrations
+python manage.py migrate 
+
+yaparak oluşturulan verileri db üzerine işlememiz gerekiyor
