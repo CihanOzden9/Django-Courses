@@ -9,7 +9,7 @@
                     {% if products|length > 0 %}
                         <p>
                         {% for product in products%}
-                            {{ product|title }}
+                            {{ product.name|title }}
                         {% endfor %}
                         </p>
                     {% else %}

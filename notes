@@ -39,3 +39,9 @@ python manage.py makemigrations
 python manage.py migrate 
 
 yaparak oluşturulan verileri db üzerine işlememiz gerekiyor
+
+----------
+
+python manage.py createsuperuser ile admin giriş ekle
+app -> admin kısmından yazdığın class ları admin.site.register(classname,adminözelleştirme) olarak ekle
+admin özelleştirme sınıfı yaz panelden neler görülebilir vs özellikler için gerekli kodları oraya yaz

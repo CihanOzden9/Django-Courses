@@ -1,6 +1,7 @@
 from django.http import *
 from django.shortcuts import render
 import datetime
+from .models import Product
 
 data = {
     "telefon":["samsung","apple","xiaomi"],
@@ -19,13 +20,19 @@ def index(request):
     })
 
 
+def list(request):
+    q = request.GET['q']
+    render(request, "list.html",q)
+
 def get_category(request,category):
     try:
-        products = data[category]
-        return render(request,"products.html",{
+        products = Product.objects.all()
+        context = {
             "category":category,
             "products":products,
             "now":datetime.datetime.now
-        })
+        }
+        
+        return render(request,"products.html",context)
     except:
         return HttpResponseNotFound("Page is not found.")

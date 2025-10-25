@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 class Product(models.Model):
@@ -8,6 +9,11 @@ class Product(models.Model):
     imageUrl = models.CharField(max_length=50)
     isActive = models.BooleanField(default=False)
     category = models.CharField(max_length=50, null=True)
+    slug = models.SlugField(default="",blank=True,editable=False, null=False)
+
+    def save(self, *args, **kargs):
+        self.slug = slugify(self.name)
+        super().save(args,kargs)
 
     def __str__(self):
         return f"{self.name} {self.price}"
