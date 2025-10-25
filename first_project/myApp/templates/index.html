@@ -2,26 +2,23 @@
 {% load static %}
 
 {% block css_files %}
-
-    <link rel="stylesheet" href={% static "css/style.css" %}>
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock css_files %}
 
 {% block baslik %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-
-                    {% for category in categories %}
-                        <a class="btn btn-primary" href="/{{category}}">{{ category }}</a>
-                    {% endfor %}
-
-            </div>
+<div class="container my-4">
+    <div class="row">
+        <div class="col text-center">
+            {% for category in categories %}
+                <a class="btn btn-primary m-1" href="/{{ category|urlencode }}">{{ category }}</a>
+            {% empty %}
+                <p>Kategori bulunamadı.</p>
+            {% endfor %}
         </div>
     </div>
+</div>
 {% endblock baslik %}
 
-
 {% block js_files %}
-    <script src="js/script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 {% endblock js_files %}

@@ -3,7 +3,7 @@ from django.shortcuts import render
 import datetime
 from .models import Product
 
-data = {
+veriler = {
     "telefon":["samsung","apple","xiaomi"],
     "bilgisayar":["laptop","macbook","setup"],
     "elektronik":["çamaşır","bulaşık"],
@@ -13,16 +13,27 @@ data = {
 
 # Create your views here.
 def index(request):
-    categories = list(data.keys())
+    categories = list(veriler.keys())
     return render(request, "index.html",{
         "categories":categories,
         "page":"index",
     })
 
 
-def list(request):
-    q = request.GET['q']
-    render(request, "list.html",q)
+def create(request):
+    if request.method == 'POST':
+        product_name = request.POST['name']
+        price = request.POST['price']
+        description = request.POST['description']
+        image_url = request.POST['image_url']
+        category = request.POST['category']
+
+        product = Product(name=product_name, price=price,description=description,imageUrl=image_url,category=category)
+        product.save()
+        return HttpResponseRedirect("/")
+    return render(request,"create.html")
+
+
 
 def get_category(request,category):
     try:
